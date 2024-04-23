@@ -1,0 +1,159 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #87ceeb, #00008b);
+}
+
+.ocean {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.fish {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 50px;
+  height: 20px;
+  background: gray;
+  border-radius: 10px;
+  animation: swim 10s linear infinite;
+  transform-origin: center;
+}
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 15px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: float 6s linear infinite;
+}
+
+.seaweed {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 100px;
+  background: linear-gradient(green, darkgreen);
+  animation: sway 5s linear infinite;
+  transform-origin: bottom;
+}
+
+.jellyfish {
+  width: 150px;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  animation: jellyfish-mov 15s linear infinite, mov-float 3s linear infinite;
+}
+
+.jellyfish-body {
+  background: rgba(255, 151, 202, 0.7);
+  width: 80px;
+  height: 50px;
+  border: 6px solid rgba(255, 151, 202, 0.8);
+  border-bottom: 10px solid rgba(255, 151, 202, 0.8);
+  border-radius: 50% 50% 20% 20%;
+}
+.jellyfish-down {
+  margin-left: 10px;
+}
+.jellyfish-tentacle {
+  width: 10%;
+  height: 40px;
+  float: left;
+  margin-top: -12px;
+  border-left: 6px solid rgba(255, 151, 202, 0.8);
+  border-radius: 50%;
+  animation: jellyfish-tentacle 2s linear infinite;
+}
+
+@keyframes mov-float {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 5%;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+@keyframes jellyfish-mov {
+  0% {
+    transform: translateX(-360%);
+  }
+  100% {
+    transform: translateX(360%);
+  }
+}
+@keyframes jellyfish-tentacle {
+  0% {
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+  }
+  25% {
+    -webkit-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  75% {
+    -webkit-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes swim {
+  0% {
+    left: 0;
+    transform: rotate(0deg);
+  }
+  50% {
+    left: 100%;
+    transform: rotate(180deg);
+  }
+  100% {
+    left: 0;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
